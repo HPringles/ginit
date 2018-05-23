@@ -1,6 +1,6 @@
 {
-  "bin" :{
-    "ginit" : "./index.js"
+  "bin": {
+    "ginit": "./index.js"
   },
   "name": "ginit",
   "version": "1.0.0",
