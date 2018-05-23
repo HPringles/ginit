@@ -2,7 +2,7 @@
   "bin": {
     "ginit": "./index.js"
   },
-  "name": "ginit",
+  "name": "hpringles-ginit",
   "version": "1.0.2",
   "description": "better git init",
   "main": "index.js",
