@@ -1,0 +1,15 @@
+{
+    "stacks": {
+        "express-ejs-mongoose": [
+            "express",
+            "ejs",
+            "mongoose"
+
+        ],
+        "express-jade-mongoose": [
+            "express",
+            "jade",
+            "mongoose"
+        ]
+    }
+}

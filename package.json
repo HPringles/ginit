@@ -2,19 +2,24 @@
   "bin": {
     "ginit": "./index.js"
   },
-  "name": "hpringles-ginit",
+  "name": "ginitor",
   "version": "1.0.2",
-  "description": "better git init",
+  "description": "All your init needs fulfilled",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests/test.js"
   },
   "keywords": [
     "Git",
     "CLI",
-    "GINIT"
+    "GINITOR",
+    "INIT",
+    "NPM",
+    "YARN",
+    "ADD",
+    "INSTALL"
   ],
-  "author": "Harry Ingles",
+  "author": "Harry Ingles(HPringles)",
   "license": "ISC",
   "dependencies": {
     "@octokit/rest": "^15.6.2",
@@ -26,7 +31,9 @@
     "inquirer": "^5.2.0",
     "lodash": "^4.17.10",
     "minimist": "^1.2.0",
+    "npm-programmatic": "0.0.10",
     "simple-git": "^1.95.0",
-    "touch": "^3.1.0"
+    "touch": "^3.1.0",
+    "yarn-programmatic": "0.0.2"
   }
 }

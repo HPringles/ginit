@@ -6,6 +6,8 @@ figlet = require("figlet"),
 files = require("./lib/files"),
 github = require("./lib/github"),
 repo = require("./lib/repo");
+inquirer = require("./lib/inquirer")
+npm = require("./lib/npm");
 
 clear();
 console.log(
@@ -13,6 +15,7 @@ console.log(
         figlet.textSync("Ginit", {horizontalLayout: "full"})
     )
 );
+
 
 if (files.directoryExists(".git")) {
     console.log(chalk.red("Already a git repository"));
@@ -41,10 +44,17 @@ const run = async () => {
         github.githubAuth(token);
 
         // create remote repo
-        const url = await repo.createRemoteRepo();
-        
+        const repoDetails = await repo.createRemoteRepo();
+        const url = repoDetails.url;
+
+        //init npm
+        let json = await npm.initPkgJson(repoDetails);
+
+        await npm.installDependencies(json.pkgmgr);
 
         // Create .gitignore
+        await repo.createEntryFile(json);
+        await repo.createReadMe(repoDetails);
         await repo.createGitIgnore();
 
         // setup local repo
@@ -60,6 +70,7 @@ const run = async () => {
                     console.log(chalk.red("Couldn't log out in, incorrect credentials or token"));
                     break;
                 case 422:
+                    console.log(err)
                     console.log(chalk.red("There is already a remote repo with that name..."))
                     break;
                 default:
@@ -70,5 +81,6 @@ const run = async () => {
 }
 
 run();
+
 
 
